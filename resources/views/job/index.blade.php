@@ -14,8 +14,25 @@
                             <x-text-input name="max_salary" value="{{request('max_salary')}}" placeholder="To" />
                         </div>
                     </div>
-                    <div>1</div>
-                    <div>1</div>
+                    <div>
+                        <div class="mb-1 font-semibold">Experience</div>
+                        
+                        <x-radio-input value="" type="expirience" >All</x-radio-input>
+                        <x-radio-input value="entry" type="expirience" >Entry</x-radio-input>
+                        <x-radio-input value="intermidiate" type="expirience" >Intermidiate</x-radio-input>
+                        <x-radio-input value="senior" type="expirience" >Senior</x-radio-input>
+                       
+                    </div>
+                    <div>
+                        <div class="mb-1 font-semibold">Category</div>
+                        
+                        <x-radio-input value="" type="category" >All</x-radio-input>
+                        <x-radio-input value="IT" type="category" >IT</x-radio-input>
+                        <x-radio-input value="Finance" type="category" >Finance</x-radio-input>
+                        <x-radio-input value="Marketing" type="category" >Marketing</x-radio-input>
+                        <x-radio-input value="Sales" type="category" >Sales</x-radio-input>
+                       
+                    </div>
                 </div>
                 <button class="w-full">Filter</button>
             </form>
