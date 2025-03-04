@@ -10,9 +10,8 @@
             <div>{{$job->location}}</div>
         </div>
         <div class="flex gap-1 text-xs">
-            <div class="rounded-md border px-2 py-1">{{Str::ucfirst($job->expirience)}}</div>
-            <div class="rounded-md border px-2 py-1">{{$job->category}}</div>
-            
+            <a href="{{route('jobs.index', ['experience' => $job->experience])}}" class="rounded-md border px-2 py-1">{{Str::ucfirst($job->experience)}}</a>
+            <a href="{{route('jobs.index', ['category' => $job->category])}}" class="rounded-md border px-2 py-1">{{$job->category}}</a>
         </div>
     </div>
     <p class="mb-4 text-sm text-slate-500" >

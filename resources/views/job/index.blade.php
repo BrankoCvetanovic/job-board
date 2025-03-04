@@ -17,10 +17,10 @@
                     <div>
                         <div class="mb-1 font-semibold">Experience</div>
                         
-                        <x-radio-input value="" type="expirience" >All</x-radio-input>
-                        <x-radio-input value="entry" type="expirience" >Entry</x-radio-input>
-                        <x-radio-input value="intermidiate" type="expirience" >Intermidiate</x-radio-input>
-                        <x-radio-input value="senior" type="expirience" >Senior</x-radio-input>
+                        <x-radio-input value="" type="experience" >All</x-radio-input>
+                        <x-radio-input value="entry" type="experience" >Entry</x-radio-input>
+                        <x-radio-input value="intermidiate" type="experience" >Intermidiate</x-radio-input>
+                        <x-radio-input value="senior" type="experience" >Senior</x-radio-input>
                        
                     </div>
                     <div>
@@ -34,7 +34,7 @@
                        
                     </div>
                 </div>
-                <button class="w-full">Filter</button>
+                <button class="w-full rounded-md border border-slate-300 bg-white px-2.5 py-1.5 text-center text-sm font-semibold text-black shadow-sm hover:bg-slate-100 ">Filter</button>
             </form>
         </x-card>
         
@@ -51,8 +51,8 @@
                 <div>{{$job->location}}</div>
             </div>
             <div class="flex gap-1 text-xs">
-                <div class="rounded-md border px-2 py-1">{{Str::ucfirst($job->expirience)}}</div>
-                <div class="rounded-md border px-2 py-1">{{$job->category}}</div>
+                <a href="{{route('jobs.index', ['experience' => $job->experience])}}" class="rounded-md border px-2 py-1">{{Str::ucfirst($job->experience)}}</a>
+                <a href="{{route('jobs.index', ['category' => $job->category])}}" class="rounded-md border px-2 py-1">{{$job->category}}</a>
                 
             </div>
         </div>
