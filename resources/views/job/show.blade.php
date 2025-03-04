@@ -1,21 +1,37 @@
 <x-layout>
     <x-nav class="mb-4" :links="['Jobs' => route('jobs.index'), $job->title => '']" />
-    <x-card><div class="mb-1 flex justify-between">
-        <h2 class="text-lg font-meduim">{{$job->title}}</h2>
-        <div class="text-slate-500">${{number_format($job->salary)}}</div>
-    </div>
-    <div class="mb-4 flex justify-between text-sm text-slate-500 items-center">
-        <div class="flex gap-2 text-xs">
-            <div>Company Name</div>
-            <div>{{$job->location}}</div>
-        </div>
-        <div class="flex gap-1 text-xs">
-            <a href="{{route('jobs.index', ['experience' => $job->experience])}}" class="rounded-md border px-2 py-1">{{Str::ucfirst($job->experience)}}</a>
-            <a href="{{route('jobs.index', ['category' => $job->category])}}" class="rounded-md border px-2 py-1">{{$job->category}}</a>
-        </div>
-    </div>
-    <p class="mb-4 text-sm text-slate-500" >
-        {!!nl2br(e($job->description))!!}
-    </p>
+    <x-job-card :$job>
+        <p class="mb-4 text-sm text-slate-500" >
+            {!!nl2br(e($job->description))!!}
+        </p>
+    </x-job-card>
+
+    <x-card>
+        <h2 class="mb-4 text-lg font-medium">
+            More {{ $job->employer->company_name }} Jobs
+          </h2>
+      
+          <div class="text-sm text-slate-500">
+            @foreach ($job->employer->jobs as $otherJob)
+                @if($otherJob->id === $job->id)
+                    @continue
+                @endif
+              <div class="mb-4 flex justify-between">
+                <div>
+                  <div class="text-slate-700">
+                    <a href="{{ route('jobs.show', $otherJob) }}">
+                      {{ $otherJob->title }}
+                    </a>
+                  </div>
+                  <div class="text-xs">
+                    {{ $otherJob->created_at->diffForHumans() }}
+                  </div>
+                </div>
+                <div class="text-xs">
+                  ${{ number_format($otherJob->salary) }}
+                </div>
+              </div>
+            @endforeach
+          </div>
     </x-card>
 </x-layout>
