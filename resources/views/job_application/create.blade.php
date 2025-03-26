@@ -21,7 +21,7 @@
           <x-text-input type="number" name="expected_salary" />
         </div>
   
-        <button class="w-full rounded-md border border-slate-300 bg-green-100 px-2.5 py-1.5 text-center text-sm font-semibold text-black shadow-sm hover:bg-green-200 ">Login</button>
+        <button class="w-full rounded-md border border-slate-300 bg-green-100 px-2.5 py-1.5 text-center text-sm font-semibold text-black shadow-sm hover:bg-green-200 ">Apply</button>
       </form>
     </x-card>
   </x-layout>
