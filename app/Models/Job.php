@@ -15,7 +15,18 @@ class Job extends Model
     /** @use HasFactory<\Database\Factories\JobFactory> */
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'location',
+        'salary',
+        'description',
+        'experience',
+        'category'
+    ];
+
     public static array $experience = ['entry','intermidiate','senior'];
+    public static array $category = ['IT', 'Finance', 'Sales', 'Marketing'];
+
 
     public function employer(): BelongsTo {
         return $this->belongsTo(Employer::class);
