@@ -1,12 +1,20 @@
 <x-layout>
     <h1 class="my-16 text-center text-4xl font-medium text-slate-600">
-        Sign in to your account
+        Create new account
       </h1>
     
       <x-card class="py-8 px-16">
-        <form action="{{ route('auth.store') }}" method="POST">
+        <form action="{{ route('register.store') }}" method="POST">
           @csrf
     
+          
+          <div class="mb-8">
+            <label for="name"
+              class="mb-2 block text-sm font-medium text-slate-900">Name</label>
+            <x-text-input name="name" />
+          </div>
+
+
           <div class="mb-8">
             <label for="email"
               class="mb-2 block text-sm font-medium text-slate-900">E-mail</label>
@@ -19,20 +27,12 @@
             </label>
             <x-text-input name="password" type="password" />
           </div>
-    
-          <div class="mb-8 flex justify-between text-sm font-medium">
-            <div>
-              <div class="flex items-center space-x-2">
-                <input type="checkbox" name="remember"
-                  class="rounded-sm border border-slate-400">
-                <label for="remember">Remember me</label>
-              </div>
-            </div>
-            <div>
-              <a href="{{ route('register') }}" class="text-indigo-600 hover:underline">
-                Don't have an account? Click here to sign up!
-              </a>
-            </div>
+
+          <div class="mb-8">
+            <label for="password_confirmation" class="mb-2 block text-sm font-medium text-slate-900">
+              Confirm Password
+            </label>
+            <x-text-input name="password_confirmation" type="password" />
           </div>
     
           <button class="w-full rounded-md border border-slate-300 bg-green-100 px-2.5 py-1.5 text-center text-sm font-semibold text-black shadow-sm hover:bg-green-200 ">Login</button>

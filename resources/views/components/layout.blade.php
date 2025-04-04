@@ -9,7 +9,11 @@
         
     </head>
     <body class="from-10% via-30% to-90% mx-auto mt-10 px-1 max-w-2xl bg-gradient-to-r from-indigo-100 via-sky-100 to-emerald-100 text-slate-700"> 
-        <nav class="mb-8 flex justify-between text-lg font-medium">
+      @auth
+        <div class="mb-8 text-2xl font-medium ">{{ auth()->user()->name ?? 'Anynomus' }}</div>
+      @endauth  
+      <nav class="mb-8 flex justify-between text-lg font-medium">
+        
             <ul class="flex space-x-2">
               <li>
                 <a href="{{ route('jobs.index') }}">Home</a>
@@ -20,7 +24,7 @@
               @auth
                 <li>
                   <a href="{{ route('my-job-applications.index') }}">
-                    {{ auth()->user()->name ?? 'Anynomus' }}: Applications
+                     Applications
                   </a>
                 </li>
                 <li>
